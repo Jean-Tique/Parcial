@@ -1,0 +1,12 @@
+<h1>Lista de Usuarios Registrados</h1>
+<ul>
+  {% for usuario in usuarios %}
+    <li>
+      {{ usuario.first_name }} {{ usuario.last_name }}
+      <!-- Botón de eliminar -->
+      <a href="{% url 'activos:eliminar_usuario' usuario.pk %}">Eliminar</a>
+    </li>
+  {% endfor %}
+</ul>
+
+

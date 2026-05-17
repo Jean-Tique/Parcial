@@ -1,0 +1,7 @@
+<h1>Asignar Activo</h1>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Asignar</button>
+</form>
+<a href="{% url 'activos:lista' %}">Cancelar</a>

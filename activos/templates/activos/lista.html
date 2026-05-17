@@ -1,0 +1,31 @@
+<h1>Lista de Activos</h1>
+<ul>
+  {% for activo in activos %}
+    {% if activo.estado == "Asignado" %}
+      <li>
+        {{ activo.codigo }} - Asignado a 
+        {{ activo.asignacion_set.last.usuario.get_full_name }} 
+        el {{ activo.asignacion_set.last.fecha_entrega }}
+        <!-- Opciones -->
+        <a href="{% url 'activos:editar' activo.id %}">Editar</a> |
+        <a href="{% url 'activos:eliminar' activo.id %}">Eliminar</a>
+      </li>
+    {% elif activo.estado == "Mantenimiento" %}
+      <li>
+        {{ activo.codigo }} - Mantenimiento
+        <!-- Opciones -->
+        <a href="{% url 'activos:editar' activo.id %}">Editar</a> |
+        <a href="{% url 'activos:eliminar' activo.id %}">Eliminar</a>
+      </li>
+    {% else %}
+      <li>
+        {{ activo.codigo }} - Disponible
+        <!-- Opciones -->
+        <a href="{% url 'activos:editar' activo.id %}">Editar</a> |
+        <a href="{% url 'activos:eliminar' activo.id %}">Eliminar</a>
+      </li>
+    {% endif %}
+  {% empty %}
+    <li>No hay activos registrados.</li>
+  {% endfor %}
+</ul>

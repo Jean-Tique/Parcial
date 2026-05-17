@@ -1,0 +1,7 @@
+<h1>Detalle del Activo</h1>
+<p><strong>Código:</strong> {{ object.codigo }}</p>
+<p><strong>Nombre:</strong> {{ object.nombre }}</p>
+<p><strong>Estado:</strong> {{ object.estado }}</p>
+<p><strong>Descripción:</strong> {{ object.descripcion }}</p>
+<a href="{% url 'activos:actualizar' activo.id %}">Actualizar estado</a>
+

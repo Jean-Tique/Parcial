@@ -1,0 +1,11 @@
+<h1>Editar Activo</h1>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+
+  <h3>Reasignar usuario</h3>
+  {{ asignacion_form.as_p }}
+
+  <button type="submit">Guardar cambios</button>
+</form>
+<a href="{% url 'activos:lista' %}">Cancelar</a>

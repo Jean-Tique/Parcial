@@ -4,9 +4,7 @@ from django.urls import reverse
 from datetime import date
 from .models import Activo, Asignacion
 
-# -----------------------------
-# Pruebas de Modelos
-# -----------------------------
+
 class ActivoModelTest(TestCase):
     def setUp(self):
         self.usuario = User.objects.create(username="jean", first_name="Jean", last_name="Tique")
@@ -31,10 +29,6 @@ class ActivoModelTest(TestCase):
         self.assertEqual(asignacion.usuario.username, "jean")
         self.assertEqual(asignacion.activo.codigo, "RC1234")
 
-
-# -----------------------------
-# Pruebas de Vistas
-# -----------------------------
 class ActivoViewsTest(TestCase):
     def setUp(self):
         self.activo = Activo.objects.create(
@@ -60,9 +54,6 @@ class ActivoViewsTest(TestCase):
         self.assertTrue(Activo.objects.filter(codigo="RC9999").exists())
 
 
-# -----------------------------
-# Pruebas de Formularios
-# -----------------------------
 class RegistrarActivoFormTest(TestCase):
     def test_registrar_activo_valido(self):
         """Verifica que se puede registrar un activo con datos válidos"""
@@ -83,5 +74,3 @@ class RegistrarActivoFormTest(TestCase):
         })
         self.assertEqual(response.status_code, 200)  # Se queda en la misma página
         self.assertContains(response, "Este campo es obligatorio")
-
-#python manage.py test activos#

@@ -5,29 +5,28 @@ from django.contrib.auth.models import User
 from .models import Activo, Asignacion
 from .forms import ActivoForm, AsignacionForm, UsuarioForm
 
-# Vista de inicio
+
 def inicio(request):
     return render(request, "activos/inicio.html")
 
-# Lista de activos
+
 class ActivoListView(ListView):
     model = Activo
     template_name = "activos/lista.html"
     context_object_name = "activos"
 
-# Detalle de activo
+
 class ActivoDetailView(DetailView):
     model = Activo
     template_name = "activos/detalle.html"
 
-# Registrar activo
+
 class ActivoCreateView(CreateView):
     model = Activo
     form_class = ActivoForm
     template_name = "activos/registrar_activo.html"
     success_url = reverse_lazy("activos:lista")
 
-# Editar activo + reasignar usuario
 class ActivoUpdateView(UpdateView):
     model = Activo
     form_class = ActivoForm
@@ -55,26 +54,25 @@ class ActivoUpdateView(UpdateView):
         return self.form_invalid(form)
 
 
-# Eliminar activo
 class ActivoDeleteView(DeleteView):
     model = Activo
     template_name = "activos/eliminar_activo.html"
     success_url = reverse_lazy("activos:lista")
 
-# Crear usuario
+
 class UsuarioCreateView(CreateView):
     model = User
     form_class = UsuarioForm
     template_name = "activos/crear_usuario.html"
     success_url = reverse_lazy("activos:lista")
 
-# Lista de usuarios
+
 class UsuarioListView(ListView):
     model = User
     template_name = "activos/usuarios.html"
     context_object_name = "usuarios"
 
-# Asignar activo
+
 class AsignacionCreateView(CreateView):
     model = Asignacion
     form_class = AsignacionForm

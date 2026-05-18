@@ -19,7 +19,7 @@ class Activo(models.Model):
     )
 
     def __str__(self):
-        # Lo que se mostrará en el admin y listas
+        
         return f"{self.codigo} - {self.nombre} ({self.estado})"
 
 

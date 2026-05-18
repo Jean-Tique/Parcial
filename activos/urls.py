@@ -7,7 +7,7 @@ from .views import (
     ActivoCreateView,
     ActivoUpdateView,
     ActivoDeleteView,
-    UsuarioCreateView,
+    UsuarioCreateView, 
     UsuarioListView,
     AsignacionCreateView,
 )
